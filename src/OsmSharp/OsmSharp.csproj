@@ -2,15 +2,30 @@
   <Import Project="../../OsmSharp.Common.props" />
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard1.3;net45;netstandard2.0</TargetFrameworks>
     <AssemblyName>OsmSharp</AssemblyName>
     <PackageId>OsmSharp</PackageId>
-    <Title>OsmSharp</Title>
-    <Description>An OpenStreetMap (OSM) library for .NET.</Description>
-    <PackageTags>openstreetmap, osm</PackageTags>
+    <NetStandardImplicitPackageVersion Condition=" '$(TargetFramework)' == 'netstandard1.3' ">1.6.1</NetStandardImplicitPackageVersion>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <Reference Include="System.Xml" />
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard1.3' ">
+    <DefineConstants>$(DefineConstants);NETSTANDARD13</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <DefineConstants>$(DefineConstants);NET45</DefineConstants>
+  </PropertyGroup>
+    <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+        <DefineConstants>$(DefineConstants);NETSTANDARD20</DefineConstants>
+    </PropertyGroup>
     <ItemGroup>
-      <PackageReference Include="protobuf-net" Version="3.0.101" />
-      <PackageReference Include="System.Text.Json" Version="5.0.2" />
+        <PackageReference Include="protobuf-net" Version="2.3.7" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Properties" />
     </ItemGroup>
 </Project>

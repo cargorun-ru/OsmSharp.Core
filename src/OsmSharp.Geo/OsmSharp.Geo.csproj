@@ -1,19 +1,28 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="../../OsmSharp.Common.props" />
-  
+
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>netstandard1.3;net45;netstandard2.0</TargetFrameworks>
     <AssemblyName>OsmSharp.Geo</AssemblyName>
     <PackageId>OsmSharp.Geo</PackageId>
-    <Title>OsmSharp.Geo</Title>
-    <Description> OsmSharp.Geo enables using OSM-data in NTS.</Description>
-    <PackageTags>openstreetmap, osm, NTS</PackageTags>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\OsmSharp\OsmSharp.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="NetTopologySuite" Version="2.0.0" />
-    <PackageReference Include="NetTopologySuite.Features" Version="2.0.0" />
+    <PackageReference Include="GeoAPI" Version="1.7.5" />
+    <PackageReference Include="NetTopologySuite" Version="1.15.0" />
+    <PackageReference Include="NetTopologySuite.Features" Version="1.15.0" />
   </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <Reference Include="System.Xml" />
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <DefineConstants>$(DefineConstants);NET45</DefineConstants>
+  </PropertyGroup>
 </Project>

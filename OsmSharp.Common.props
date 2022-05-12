@@ -3,7 +3,7 @@
   
   <!--- Package information, Version -->
   <PropertyGroup>
-    <PackageVersion>7.0.0-pre018</PackageVersion>
+    <PackageVersion>6.2.0</PackageVersion>
     <LangVersion>latest</LangVersion>
     <Company>Itinero BV</Company>
     <Authors>OsmSharp Contributors</Authors>
