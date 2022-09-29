@@ -8,12 +8,12 @@
     <ProjectReference Include="..\..\src\OsmSharp.Geo\OsmSharp.Geo.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="NetTopologySuite.IO.GeoJSON" Version="1.15.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="NetTopologySuite.IO.GeoJSON" Version="2.0.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="dotnet-test-nunit" Version="3.4.0-beta-3" />
-    <PackageReference Include="nunit" Version="3.9.0" />
-    <PackageReference Include="NUnit3TestAdapter" Version="3.9.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.5.0" />
+    <PackageReference Include="nunit" Version="3.13.3" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.2" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="data\pbf\*.pbf;data\xml\*.osm" Exclude="bin\**;obj\**;**\*.xproj;packages\**;@(EmbeddedResource)" />

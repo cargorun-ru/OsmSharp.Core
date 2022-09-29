@@ -5,18 +5,18 @@
         <OutputType>Exe</OutputType>
     </PropertyGroup>
     <ItemGroup>
-        <ProjectReference Include="..\..\src\OsmSharp\OsmSharp.csproj"/>
-        <ProjectReference Include="..\..\src\OsmSharp.Geo\OsmSharp.Geo.csproj"/>
+        <ProjectReference Include="..\..\src\OsmSharp\OsmSharp.csproj" />
+        <ProjectReference Include="..\..\src\OsmSharp.Geo\OsmSharp.Geo.csproj" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="NetTopologySuite.IO.GeoJSON" Version="1.15.0"/>
+        <PackageReference Include="NetTopologySuite.IO.GeoJSON" Version="2.0.4" />
     </ItemGroup>
     <ItemGroup Condition=" '$(TargetFramework)' == 'net451' ">
-        <Reference Include="System.Xml"/>
-        <Reference Include="System"/>
-        <Reference Include="Microsoft.CSharp"/>
+        <Reference Include="System.Xml" />
+        <Reference Include="System" />
+        <Reference Include="Microsoft.CSharp" />
     </ItemGroup>
     <ItemGroup>
-        <Reference Include="System.Net.Http"/>
+        <Reference Include="System.Net.Http" />
     </ItemGroup>
 </Project>
