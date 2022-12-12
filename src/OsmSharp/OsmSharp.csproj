@@ -2,38 +2,15 @@
   <Import Project="../../OsmSharp.Common.props" />
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.1;net6.0</TargetFrameworks>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>OsmSharp</AssemblyName>
     <PackageId>OsmSharp</PackageId>
-    <NetStandardImplicitPackageVersion Condition=" '$(TargetFramework)' == 'netstandard1.3' ">1.6.1</NetStandardImplicitPackageVersion>
-    <LangVersion>latest</LangVersion>
-    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
-    <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
-    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <Title>OsmSharp</Title>
+    <Description>An OpenStreetMap (OSM) library for .NET.</Description>
+    <PackageTags>openstreetmap, osm</PackageTags>
   </PropertyGroup>
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
-    <Reference Include="System.Xml" />
-    <Reference Include="System" />
-    <Reference Include="Microsoft.CSharp" />
-  </ItemGroup>
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard1.3' ">
-    <DefineConstants>$(DefineConstants);NETSTANDARD13</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'net45' ">
-    <DefineConstants>$(DefineConstants);NET45</DefineConstants>
-  </PropertyGroup>
-    <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
-        <DefineConstants>$(DefineConstants);NETSTANDARD20</DefineConstants>
-    </PropertyGroup>
     <ItemGroup>
-      <Compile Remove="Properties\**" />
-      <EmbeddedResource Remove="Properties\**" />
-      <None Remove="Properties\**" />
+      <PackageReference Include="protobuf-net" Version="3.1.25" />
+      <PackageReference Include="System.Text.Json" Version="7.0.0" />
     </ItemGroup>
-    <ItemGroup>
-        <PackageReference Include="protobuf-net" Version="3.1.22" />
-        <PackageReference Include="System.Text.Json" Version="6.0.6" />
-    </ItemGroup>  
 </Project>

@@ -10,19 +10,7 @@
     <ProjectReference Include="..\OsmSharp\OsmSharp.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="GeoAPI" Version="1.7.5" />
-    <PackageReference Include="NetTopologySuite" Version="1.15.0" />
-    <PackageReference Include="NetTopologySuite.Features" Version="1.15.0" />
+    <PackageReference Include="NetTopologySuite" Version="2.5.0" />
+    <PackageReference Include="NetTopologySuite.Features" Version="2.1.0" />
   </ItemGroup>
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
-    <Reference Include="System.Xml" />
-    <Reference Include="System" />
-    <Reference Include="Microsoft.CSharp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties" />
-  </ItemGroup>
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'net45' ">
-    <DefineConstants>$(DefineConstants);NET45</DefineConstants>
-  </PropertyGroup>
 </Project>
