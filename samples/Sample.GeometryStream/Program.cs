@@ -1,4 +1,4 @@
-﻿// The MIT License (MIT)
+// The MIT License (MIT)
 
 // Copyright (c) 2016 Ben Abelshausen
 
@@ -25,27 +25,26 @@ using NetTopologySuite.Geometries;
 using OsmSharp;
 using OsmSharp.Geo;
 using OsmSharp.Streams;
-using Sample.GeometryStream.Staging;
 using System;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Sample.GeometryStream
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             // let's show you what's going on.
             OsmSharp.Logging.Logger.LogAction = (origin, level, message, parameters) =>
             {
-                Console.WriteLine(string.Format("[{0}] {1} - {2}", origin, level, message));
+                Console.WriteLine($"[{origin}] {level} - {message}");
             };
 
-            Download.ToFile("http://planet.anyways.eu/planet/europe/luxembourg/luxembourg-latest.osm.pbf", "luxembourg-latest.osm.pbf").Wait();
-
-            using (var fileStream = File.OpenRead("luxembourg-latest.osm.pbf"))
-            {
+            await Download.Download.ToFile("http://planet.anyways.eu/planet/europe/luxembourg/luxembourg-latest.osm.pbf", "luxembourg-latest.osm.pbf");
+            await using var fileStream = File.OpenRead("luxembourg-latest.osm.pbf");
+            
                 // create source stream.
                 var source = new PBFOsmStreamSource(fileStream);
 
@@ -78,9 +77,8 @@ namespace Sample.GeometryStream
                 }
 
                 // convert to geojson.
-                var json = ToJson(featureCollection);
-                File.WriteAllText("output.geojson", json);
-            }
+            var json = ToJson(featureCollection);
+            await File.WriteAllTextAsync("output.geojson", json);
         }
 
         private static string ToJson(FeatureCollection featureCollection)

@@ -2,9 +2,12 @@
   <Import Project="../../OsmSharp.Common.props" />
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.3;net45;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <AssemblyName>OsmSharp.Geo</AssemblyName>
     <PackageId>OsmSharp.Geo</PackageId>
+    <Title>OsmSharp.Geo</Title>
+    <Description> OsmSharp.Geo enables using OSM-data in NTS.</Description>
+    <PackageTags>openstreetmap, osm, NTS</PackageTags>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\OsmSharp\OsmSharp.csproj" />
