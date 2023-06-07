@@ -60,23 +60,23 @@ namespace Sample.GeometryStream.Shape
 
             // convert to a feature stream.
             // WARNING: nodes that are part of power lines will be kept in-memory.
-            //          it's important to filter only the objects you need **before** 
-            //          you convert to a feature stream otherwise all objects will 
-            //          be kept in-memory.
-            var features = filtered.ToFeatureSource();
+                //          it's important to filter only the objects you need **before** 
+                //          you convert to a feature stream otherwise all objects will 
+                //          be kept in-memory.
+                var features = filtered.ToFeatureSource();
 
-            // filter out only linestrings.
-            var lineStrings = from feature in features
-                where feature.Geometry is LineString
-                select feature;
+                // filter out only linestrings.
+                var lineStrings = from feature in features
+                                  where feature.Geometry is LineString
+                                  select feature;
 
-            // build feature collection.
-            var featureCollection = new FeatureCollection();
-            var attributesTable = new AttributesTable {{"type", "powerline"}};
-            foreach (var feature in lineStrings)
-            { // make sure there is a constant # of attributes with the same names before writing the shapefile.
-                featureCollection.Add(new Feature(feature.Geometry, attributesTable));
-            }
+                // build feature collection.
+                var featureCollection = new FeatureCollection();
+                var attributesTable = new AttributesTable {{"type", "powerline"}};
+                foreach (var feature in lineStrings)
+                { // make sure there is a constant # of attributes with the same names before writing the shapefile.
+                    featureCollection.Add(new Feature(feature.Geometry, attributesTable));
+                }
 
             // convert to shape.
             var header = ShapefileDataWriter.GetHeader(featureCollection.First(), featureCollection.Count);
