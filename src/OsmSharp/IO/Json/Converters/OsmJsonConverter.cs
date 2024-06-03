@@ -45,7 +45,7 @@ namespace OsmSharp.IO.Json.Converters
                             break;
                         case "generator":
                             osm.Generator = reader.GetString();
-                            break;
+                            break; 
                         case "elements":
                             reader.Read();
                             while (reader.TokenType != JsonTokenType.EndArray)
@@ -68,6 +68,9 @@ namespace OsmSharp.IO.Json.Converters
                                         break;
                                 }
                             }
+                            break;
+                        default:
+                            reader.Skip();
                             break;
                     }
                 }
