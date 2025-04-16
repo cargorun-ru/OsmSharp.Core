@@ -10,7 +10,7 @@
     <PackageTags>openstreetmap, osm</PackageTags>
   </PropertyGroup>
     <ItemGroup>
-      <PackageReference Include="protobuf-net" Version="3.2.46" />
+      <PackageReference Include="protobuf-net" Version="3.2.52" />
       <PackageReference Include="System.Text.Json" Version="9.0.4" />
     </ItemGroup>
 </Project>
