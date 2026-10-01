@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFrameworks>net10.0</TargetFrameworks>
     <AssemblyName>Sample.Filter</AssemblyName>
     <OutputType>Exe</OutputType>
   </PropertyGroup>
